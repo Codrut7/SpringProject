@@ -1,0 +1,7 @@
+INDEX VERSION 1.4+D:\cinema-project\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
+2866795659.index
+1958891053.index
+420383114.index
+4140137982.index
+4105278290.index
+975754025.index

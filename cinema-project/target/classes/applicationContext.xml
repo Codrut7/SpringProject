@@ -1,0 +1,23 @@
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns="http://www.springframework.org/schema/beans"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+		http://www.springframework.org/schema/beans/spring-beans.xsd
+
+		http://www.springframework.org/schema/context
+		http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!-- Scaneaza pentru adnotari  -->
+    <context:component-scan base-package="com.cinemaProject.cinemaProject.*"/>
+
+    <import resource="spring-dao.xml"/>
+
+								
+    <bean id="clientDAO" class="com.cinemaProject.cinemaproject.dao.implementationDAO.JPAClientDAO"/>
+	<bean id="adminDAO" class="com.cinemaProject.cinemaproject.dao.implementationDAO.JPAAdminDAO"/>
+	<bean id="movieDAO" class="com.cinemaProject.cinemaproject.dao.implementationDAO.JPAMovieDAO"/>
+    <bean id="clientService" class="com.cinemaProject.cinemaproject.services.implementationService.ClientServiceJPA"/>
+    <bean id="adminService" class="com.cinemaProject.cinemaproject.services.implementationService.AdminServiceJPA"/>
+    <bean id="movieService" class="com.cinemaProject.cinemaproject.services.implementationService.MovieServiceJPA"/>
+
+</beans>
