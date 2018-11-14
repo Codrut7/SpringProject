@@ -10,6 +10,28 @@
 <meta http-equiv="content-type"
 	content="text/html; charset=windows-1252" />
 <link rel="stylesheet" type="text/css" href="style/style.css" />
+<link rel="stylesheet" href="/build/jquery.periodpicker.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/momentjs/2.14.1/moment.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/js/bootstrap-datetimepicker.min.js"></script>
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/css/bootstrap-datetimepicker.min.css">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+<script>
+	$(function() {
+		$('#datetimepicker1').datetimepicker();
+	});
+</script>
+<script>
+	$(function() {
+		$('#datetimepicker2').datetimepicker();
+	});
+</script>
 </head>
 
 <style>
@@ -94,38 +116,34 @@ h0, h1, h2, h3, h4, h5, h6, h7 {
 				<form action="/cinema-project/query/admin/addMovie" method="post">
 					<p></p>
 					<h5>
-						Enter Movie Name :
-						<input type="text" id="name" name="name"><br>
+						Enter Movie Name : <input type="text" id="name" name="name"><br>
 						<p></p>
-						Enter Movie Description :
-						<input type="text" id="description" name="description"><br>
+						Enter Movie Description : <input type="text" id="description"
+							name="description"><br>
 						<p></p>
-						Enter Movie Genre :
-						<input type="text" id="genre" name="genre"><br>
+						Enter Movie Genre : <input type="text" id="genre" name="genre"><br>
 						<p></p>
-						Enter Image URL for the movie :
-						<input type="text" id="image_url" name="image_url"><br>
+						Enter Image URL for the movie : <input type="text" id="image_url"
+							name="image_url"><br>
 						<p></p>
-						Enter room for the movie :
-						<input type="text" id="location" name="location"><br>
+						Enter room for the movie : <input type="text" id="location"
+							name="location"><br>
 						<p></p>
-						Enter starting hour for the movie (format yyyy-MM-dd hh:mm:ss.SSS) :
-						<input type="text" id="starting_hour" name="starting_hour"><br>
+						Enter starting hour for the movie : <input type="text"
+							id="datetimepicker1" name="starting_hour"><br>
 						<p></p>
-						Enter ending hour for the movie (format yyyy-MM-dd hh:mm:ss.SSS) :
-						<input type="text" id="ending_hour" name="ending_hour"><br>
+						Enter ending hour for the movie : <input type="text"
+							id="datetimepicker2" name="ending_hour"><br>
 						<p></p>
-						
+
 						<input type="submit" class="button" value="Add Movie">
 
 					</h5>
 				</form>
 
 				<form action="/cinema-project/query/admin/removeMovie" method="post">
-
-					<p></p>
-					
-						<h3>Enter Movie Name :
+					<h3>
+						Enter Movie Name :
 						<p></p>
 						<input type="text" id="movieName" name="movieName"><br>
 						<p></p>

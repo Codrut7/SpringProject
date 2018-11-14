@@ -51,11 +51,10 @@ h0, h1, h2, h3, h4, h5, h6, h7 {
 					<li><a
 						href="query/client/<%=request.getParameter("id")%>/getClient">Home</a></li>
 					<li class="selected"><a
-						href="movies.jsp?<%=request.getQueryString()%>">My Movies</a></li>
+						href="myMovies.jsp?<%=request.getQueryString()%>">My Movies</a></li>
 					<li><a
 						href="query/client/<%=request.getParameter("id")%>/allMovies">All
 							Movies</a></li>
-					<li><a href="another_page.jsp?<%=request.getQueryString()%>">About</a></li>
 				</ul>
 			</div>
 		</div>
@@ -98,11 +97,11 @@ h0, h1, h2, h3, h4, h5, h6, h7 {
 				<p></p>
 				<h<%=i%> style="font-size:40;"><%=request.getParameter("name" + i)%></h<%=i%>>
 				<p></p>
-				<h <%=i%> style="font-size:25;"><%=request.getParameter("location" + i)%></h<%=i%>>
+				<h <%=i%> style="font-size:25;">Location : <%=request.getParameter("location" + i)%></h<%=i%>>
 				<p></p>
-				<h <%=i%> style="font-size:25;"><%=request.getParameter("start_h" + i)%></h<%=i%>>
+				<h <%=i%> style="font-size:25;">Starting time : <%=request.getParameter("start_h" + i)%></h<%=i%>>
 				<p></p>
-				<h <%=i%> style="font-size:25;"><%=request.getParameter("end_h" + i)%></h<%=i%>>
+				<h <%=i%> style="font-size:25;">Ending time : <%=request.getParameter("end_h" + i)%></h<%=i%>>
 				<p></p>
 				<h<%=i%> style="font-size:25;"><%=request.getParameter("description" + i)%> </h<%=i%>>
 				<p></p>

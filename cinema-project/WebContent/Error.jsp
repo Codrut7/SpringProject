@@ -7,6 +7,6 @@
 <title>Error</title>
 </head>
 <body>
-
+<h1>There was an error processing your request :( .</h1>
 </body>
 </html>

@@ -57,7 +57,7 @@ public class ClientRest {
 			URI uri = new URI("http://localhost:8080/cinema-project/faces/login.html");
 			return Response.seeOther(uri).build();
 		}else {
-			URI uri = new URI("http://localhost:8080/cinema-project/faces/register.html");
+			URI uri = new URI("http://localhost:8080/cinema-project/faces/registerError.jsp");
 			return Response.seeOther(uri).build();
 		}
 	}

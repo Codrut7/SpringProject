@@ -29,7 +29,6 @@
                 <li><a href="home.jsp?<%=request.getQueryString()%>">Home</a></li>
                 <li><a href="movies.jsp?<%=request.getQueryString()%>">Movies</a></li>
                 <li><a href="allMovies.jsp?<%=request.getQueryString()%>">Contact</a></li>
-                <li class="selected"><a href="another_page.jsp?<%=request.getQueryString()%>">About</a></li>
             </ul>
         </div>
     </div>

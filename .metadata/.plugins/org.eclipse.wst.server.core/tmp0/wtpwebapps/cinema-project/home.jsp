@@ -46,7 +46,6 @@ h10, h11, h12, h13, h14, h15 {
 					<li><a
 						href="query/client/<%=request.getParameter("id")%>/allMovies">All
 							Movies</a></li>
-					<li><a href="another_page.jsp?<%=request.getQueryString()%>">About</a></li>
 				</ul>
 			</div>
 		</div>

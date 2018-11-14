@@ -15,13 +15,13 @@ import org.mockito.MockitoAnnotations;
 
 import com.cinemaProject.cinemaproject.dao.AdminDAO;
 import com.cinemaProject.cinemaproject.entities.Client;
-import com.cinemaProject.cinemaproject.services.implementationService.AdminServiceJPA;
+import com.cinemaProject.cinemaproject.services.implementationService.AdminServiceImpl;
 
 public class AdminServiceTest {
 	@Mock
 	private AdminDAO daoMock;
 	@InjectMocks
-	private AdminServiceJPA service;
+	private AdminServiceImpl service;
 
 	@Before
 	public void setUp() throws Exception {

@@ -58,7 +58,6 @@ h0, h1, h2, h3, h4, h5, h6, h7 {
 							Movies</a></li>
 					<li class="selected"><a
 						href="allMovies.jsp?<%=request.getQueryString()%>">All Movies</a></li>
-					<li><a href="another_page.jsp?<%=request.getQueryString()%>">About</a></li>
 				</ul>
 			</div>
 		</div>

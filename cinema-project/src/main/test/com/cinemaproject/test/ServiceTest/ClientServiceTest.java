@@ -16,14 +16,14 @@ import org.mockito.MockitoAnnotations;
 
 import com.cinemaProject.cinemaproject.dao.ClientDAO;
 import com.cinemaProject.cinemaproject.entities.Client;
-import com.cinemaProject.cinemaproject.services.implementationService.ClientServiceJPA;
+import com.cinemaProject.cinemaproject.services.implementationService.ClientServiceImpl;
 
 public class ClientServiceTest {
 
 	@Mock
 	private ClientDAO daoMock;
 	@InjectMocks
-	private ClientServiceJPA service;
+	private ClientServiceImpl service;
 
 	@Before
 	public void setUp() throws Exception {

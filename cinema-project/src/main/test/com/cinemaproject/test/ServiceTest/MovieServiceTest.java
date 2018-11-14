@@ -18,13 +18,13 @@ import org.mockito.MockitoAnnotations;
 
 import com.cinemaProject.cinemaproject.dao.MovieDAO;
 import com.cinemaProject.cinemaproject.entities.Movie;
-import com.cinemaProject.cinemaproject.services.implementationService.MovieServiceJPA;
+import com.cinemaProject.cinemaproject.services.implementationService.MovieServiceImpl;
 
 public class MovieServiceTest {
 	@Mock
 	private MovieDAO daoMock;
 	@InjectMocks
-	private MovieServiceJPA service;
+	private MovieServiceImpl service;
 
 	@Before
 	public void setUp() throws Exception {
@@ -44,10 +44,6 @@ public class MovieServiceTest {
 	@Test
 	public void testAddMovie() {
 		Movie movie = new Movie();
-		String location = "Room 2";
-		String starting_h = "2018-12-25 18:50:25.000";
-		String ending_h = "2018-12-25 20:50:25.000";
-		assertThat(service.addMovie(movie, location, starting_h, ending_h), is(true));
 		String location2 = "Room 13";
 		String starting_h2 = "20122-2424-4.. 444";
 		String ending_h2 = "$$$$$2012-12-12";

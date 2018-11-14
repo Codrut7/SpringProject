@@ -13,11 +13,11 @@
     <import resource="spring-dao.xml"/>
 
 								
-    <bean id="clientDAO" class="com.cinemaProject.cinemaproject.dao.implementationDAO.JPAClientDAO"/>
-	<bean id="adminDAO" class="com.cinemaProject.cinemaproject.dao.implementationDAO.JPAAdminDAO"/>
-	<bean id="movieDAO" class="com.cinemaProject.cinemaproject.dao.implementationDAO.JPAMovieDAO"/>
-    <bean id="clientService" class="com.cinemaProject.cinemaproject.services.implementationService.ClientServiceJPA"/>
-    <bean id="adminService" class="com.cinemaProject.cinemaproject.services.implementationService.AdminServiceJPA"/>
-    <bean id="movieService" class="com.cinemaProject.cinemaproject.services.implementationService.MovieServiceJPA"/>
+    <bean id="clientDAO" class="com.cinemaProject.cinemaproject.dao.implementationDAO.ClientDaoImpl"/>
+	<bean id="adminDAO" class="com.cinemaProject.cinemaproject.dao.implementationDAO.AdminDaoImpl"/>
+	<bean id="movieDAO" class="com.cinemaProject.cinemaproject.dao.implementationDAO.MovieDaoImpl"/>
+    <bean id="clientService" class="com.cinemaProject.cinemaproject.services.implementationService.ClientServiceImpl"/>
+    <bean id="adminService" class="com.cinemaProject.cinemaproject.services.implementationService.AdminServiceImpl"/>
+    <bean id="movieService" class="com.cinemaProject.cinemaproject.services.implementationService.MovieServiceImpl"/>
 
 </beans>

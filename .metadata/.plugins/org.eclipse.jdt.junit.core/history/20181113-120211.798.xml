@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="test" project="cinema-project" tests="13" started="13" failures="0" errors="0" ignored="0">
+  <testsuite name="com.cinemaproject.test.ServiceTest.AdminServiceTest" time="0.206">
+    <testcase name="testFindClientByName" classname="com.cinemaproject.test.ServiceTest.AdminServiceTest" time="0.206"/>
+  </testsuite>
+  <testsuite name="com.cinemaproject.test.UtilTest.validatorsTest.PasswordValidatorTest" time="0.002">
+    <testcase name="passwordTest" classname="com.cinemaproject.test.UtilTest.validatorsTest.PasswordValidatorTest" time="0.002"/>
+  </testsuite>
+  <testsuite name="com.cinemaproject.test.ServiceTest.MovieServiceTest" time="0.045">
+    <testcase name="testAddMovie" classname="com.cinemaproject.test.ServiceTest.MovieServiceTest" time="0.038"/>
+    <testcase name="testListMovies" classname="com.cinemaproject.test.ServiceTest.MovieServiceTest" time="0.001"/>
+    <testcase name="testFindByUsername" classname="com.cinemaproject.test.ServiceTest.MovieServiceTest" time="0.002"/>
+    <testcase name="testFindMovie" classname="com.cinemaproject.test.ServiceTest.MovieServiceTest" time="0.004"/>
+  </testsuite>
+  <testsuite name="com.cinemaproject.test.UtilTest.validatorsTest.EmailValidatorTest" time="0.001">
+    <testcase name="testEmail" classname="com.cinemaproject.test.UtilTest.validatorsTest.EmailValidatorTest" time="0.001"/>
+  </testsuite>
+  <testsuite name="com.cinemaproject.test.ServiceTest.ClientServiceTest" time="0.008">
+    <testcase name="testLoginClient" classname="com.cinemaproject.test.ServiceTest.ClientServiceTest" time="0.006"/>
+    <testcase name="testGetClient" classname="com.cinemaproject.test.ServiceTest.ClientServiceTest" time="0.001"/>
+    <testcase name="testRegisterClient" classname="com.cinemaproject.test.ServiceTest.ClientServiceTest" time="0.001"/>
+  </testsuite>
+  <testsuite name="com.cinemaproject.test.UtilTest.DateConverterTest" time="0.003">
+    <testcase name="converterTest" classname="com.cinemaproject.test.UtilTest.DateConverterTest" time="0.003"/>
+  </testsuite>
+  <testsuite name="com.cinemaproject.test.UtilTest.validatorsTest.PhoneValidatorTest" time="0.0">
+    <testcase name="cellphoneTest" classname="com.cinemaproject.test.UtilTest.validatorsTest.PhoneValidatorTest" time="0.0"/>
+  </testsuite>
+  <testsuite name="com.cinemaproject.test.UtilTest.validatorsTest.UsernameValidatorTest" time="0.001">
+    <testcase name="usernameTest" classname="com.cinemaproject.test.UtilTest.validatorsTest.UsernameValidatorTest" time="0.001"/>
+  </testsuite>
+</testrun>
