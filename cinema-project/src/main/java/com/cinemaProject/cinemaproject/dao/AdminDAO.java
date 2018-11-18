@@ -19,5 +19,11 @@ public interface AdminDAO {
 	 * @param client
 	 */
 	public void removeClient(Client client);
+	/**
+	 * Find a client by inserting only his email.
+	 * @param email
+	 * @return
+	 */
+	public List<Client> findClientbyEmail(String email);
 
 }

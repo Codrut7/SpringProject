@@ -4,8 +4,9 @@ import java.net.URI;
 
 
 
-import java.net.URISyntaxException;
 
+import java.net.URISyntaxException;
+import java.security.NoSuchAlgorithmException;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.FormParam;
 import javax.ws.rs.GET;
@@ -16,6 +17,7 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
+import org.apache.commons.lang3.RandomStringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.cinemaProject.cinemaproject.entities.Client;
@@ -23,6 +25,8 @@ import com.cinemaProject.cinemaproject.entities.Movie;
 import com.cinemaProject.cinemaproject.services.AdminService;
 import com.cinemaProject.cinemaproject.services.ClientService;
 import com.cinemaProject.cinemaproject.services.MovieService;
+import com.cinemaProject.cinemaproject.util.EmailSender;
+import com.cinemaProject.cinemaproject.util.HashPassword;
 import com.cinemaProject.cinemaproject.util.UriBuilderUtil;
 
 
@@ -60,7 +64,7 @@ public class AdminRest {
 
 	@GET
 	@Path("/{byId}/clearMovies")
-	public Response clearMovies(@PathParam("byId") Long byId) throws URISyntaxException {
+	public Response clearMovies(@PathParam("byId") Long byId) throws URISyntaxException, NoSuchAlgorithmException {
 		Client client = clientService.getClient(byId);
 		client.clearMovies();
 		clientService.updateClient(client);
@@ -111,6 +115,28 @@ public class AdminRest {
 			return Response.seeOther(redirect).build();
 		}else {
 			URI redirect = new URI("http://localhost:8080/cinema-project/Error.jsp");
+			return Response.seeOther(redirect).build();
+		}
+	}
+	
+	@POST
+	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
+	@Produces(MediaType.TEXT_HTML)
+	@Path("/forgotPassword")
+	public Response forgotPassword(@FormParam("email")String email) throws URISyntaxException, NoSuchAlgorithmException {
+		Client client = adminService.findClientbyEmail(email);
+		if(client==null) {
+			URI redirect = new URI("http://localhost:8080/cinema-project/forgotPassword.html");
+			return Response.seeOther(redirect).build();
+		}else {
+			int length = 4;
+	        boolean useLetters = true;
+	        boolean useNumbers = false;
+	        String generatedString = RandomStringUtils.random(length, useLetters, useNumbers);
+	        client.setPassword(HashPassword.HashPass(generatedString));
+	        clientService.updateClient(client);
+			EmailSender.sendEmail(client,generatedString);
+			URI redirect = new URI("http://localhost:8080/cinema-project/login.html");
 			return Response.seeOther(redirect).build();
 		}
 	}

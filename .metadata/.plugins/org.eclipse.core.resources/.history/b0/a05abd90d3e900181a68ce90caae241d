@@ -1,0 +1,66 @@
+package myEcommApp.model;
+
+import javax.persistence.*;
+import java.io.Serializable;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+
+@Entity(name = "USERROLE")
+@Table(name = "USERROLE")
+public class UserRole implements Serializable {
+
+
+
+    @Id
+    @OneToOne(fetch = FetchType.LAZY, optional = false, targetEntity = UserRole.class)
+    @JoinColumns({
+            @JoinColumn(name = "NAME", nullable = false)})
+    //private Long id;
+    private String name;
+
+    @Column(nullable = false)
+    private String roleName;
+
+    @Column
+    private String  dateOfAccessModification;
+
+    public UserRole(String name, String roleName) {
+        this.name = name;
+        this.roleName = roleName;
+        Calendar calendar = Calendar.getInstance();
+        Date date = calendar.getTime();
+        DateFormat dateFormat = new SimpleDateFormat("YY:MM:DD:HH:mm:ss");
+        this.dateOfAccessModification = dateFormat.format(date);
+
+    }
+
+    public UserRole() {}
+
+    public String getDateOfAccessModification() {
+        return dateOfAccessModification;
+    }
+
+    public void setDateOfAccessModification(String dateOfAccesModification) {
+        this.dateOfAccessModification = dateOfAccesModification;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getRoleName() {
+        return roleName;
+    }
+
+    public void setRoleName(String roleName) {
+        this.roleName = roleName;
+    }
+
+
+}

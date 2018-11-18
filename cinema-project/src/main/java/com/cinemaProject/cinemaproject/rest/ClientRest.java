@@ -5,6 +5,7 @@ import com.cinemaProject.cinemaproject.entities.Client;
 import com.cinemaProject.cinemaproject.entities.Movie;
 import com.cinemaProject.cinemaproject.services.ClientService;
 import com.cinemaProject.cinemaproject.services.MovieService;
+import com.cinemaProject.cinemaproject.util.HashPassword;
 import com.cinemaProject.cinemaproject.util.UriBuilderUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -15,6 +16,7 @@ import javax.ws.rs.core.UriBuilder;
 import java.io.FileNotFoundException;
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.security.NoSuchAlgorithmException;
 import java.util.List;
 
 /**
@@ -33,7 +35,7 @@ public class ClientRest {
 	/**
 	 * 1) First take the 5 param from the html forms ( username, password, password-repeat,cellphone, email adress )
 	 * 2) Create a new Client object using the parameters and we set his role to default (USER)
-	 * 3) Validate the client credentials .
+	 * 3) Validate the client credentials . If valid, hash the password .
 	 * 4) Attach the client to the entityManager and we merge it after that .
 	 * 5) Redirect the user to the login page . 
 	 * @param name
@@ -44,16 +46,17 @@ public class ClientRest {
 	 * @return
 	 * @throws URISyntaxException
 	 * @throws FileNotFoundException
+	 * @throws NoSuchAlgorithmException 
 	 */
 	@POST
 	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
 	@Produces(MediaType.TEXT_HTML)
 	@Path("/save")
 	public Response saveClient(@FormParam("name") String name, @FormParam("phone") String phoneNumber,
-			@FormParam("email") String email, @FormParam("psw") String password) throws URISyntaxException, FileNotFoundException {
+			@FormParam("email") String email, @FormParam("psw") String password) throws URISyntaxException, FileNotFoundException, NoSuchAlgorithmException {
 		Client client = new Client(name,email,phoneNumber,password);
 		//3
-		if(clientService.updateClient(client)) {
+		if(clientService.registerClient(client)) {
 			URI uri = new URI("http://localhost:8080/cinema-project/faces/login.html");
 			return Response.seeOther(uri).build();
 		}else {
@@ -72,13 +75,15 @@ public class ClientRest {
 	 * @param password
 	 * @return
 	 * @throws URISyntaxException
+	 * @throws NoSuchAlgorithmException 
 	 */
 	@POST
 	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
 	@Produces(MediaType.TEXT_HTML)
 	@Path("/login")
-	public Response loginRedirect(@FormParam("name") String name, @FormParam("password") String password)
-			throws URISyntaxException {
+	public Response loginRedirect(@FormParam("name") String name, @FormParam("password") String passwordText)
+			throws URISyntaxException, NoSuchAlgorithmException {
+		String password = HashPassword.HashPass(passwordText);
 		Client loggedClient = clientService.loginClient(name, password);
 		//1
 		if (loggedClient==null) {

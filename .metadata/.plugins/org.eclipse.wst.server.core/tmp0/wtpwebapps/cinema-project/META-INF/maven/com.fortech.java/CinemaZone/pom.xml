@@ -5,7 +5,7 @@
     <artifactId>CinemaZone</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>war</packaging>
-    <name>CinemaZone</name>
+    <name>cinema-project</name>
     <description>building REST web services with spring, jersey and jpa2/hibernate</description>
 
     <properties>
@@ -286,6 +286,12 @@
     <scope>test</scope>
 </dependency>
 		
+            <dependency>
+                <groupId>com.sun.mail</groupId>
+                <artifactId>javax.mail</artifactId>
+                <version>1.6.2</version>
+            </dependency>
+
 		
     </dependencies>
 

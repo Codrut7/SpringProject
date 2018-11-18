@@ -1,5 +1,5 @@
 #Tomcat publish data
-#Wed Nov 14 03:58:54 PST 2018
+#Sat Nov 17 07:57:40 PST 2018
 org.eclipse.jst.jee.server\:/binary\:C\:\\Users\\cordu\\.m2\\repository\\org\\springframework\\spring-web\\3.2.6.RELEASE\\spring-web-3.2.6.RELEASE.jar=WEB-INF/lib/spring-web-3.2.6.RELEASE.jar
 org.eclipse.jst.jee.server\:/binary\:C\:\\Users\\cordu\\.m2\\repository\\org\\apache\\tomcat\\embed\\tomcat-embed-websocket\\8.5.34\\tomcat-embed-websocket-8.5.34.jar=WEB-INF/lib/tomcat-embed-websocket-8.5.34.jar
 org.eclipse.jst.jee.server\:/binary\:C\:\\Users\\cordu\\.m2\\repository\\org\\apache\\tomcat\\embed\\tomcat-embed-jasper\\8.5.34\\tomcat-embed-jasper-8.5.34.jar=WEB-INF/lib/tomcat-embed-jasper-8.5.34.jar

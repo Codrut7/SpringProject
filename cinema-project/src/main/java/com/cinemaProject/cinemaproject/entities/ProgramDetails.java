@@ -14,13 +14,9 @@ import javax.persistence.*;
 @Entity
 @Table(name = "program")
 public class ProgramDetails implements Serializable {
-	/**
-	 * The values mapped from the SQL table.
-	 */
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-
 	private String location;
 	@Column(name = "starting_hour")
 	private Timestamp startingHour;

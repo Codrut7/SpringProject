@@ -31,7 +31,7 @@ public class AdminDaoImpl implements AdminDAO {
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<Client> findClientbyUsername(String username) {
-		return entityManager.createQuery("SELECT c FROM Client c WHERE c.userName LIKE :userName")
+		return entityManager.createQuery("SELECT c FROM Client c WHERE c.userName = :userName")
 				.setParameter("userName", username).getResultList();
 	}
 
@@ -47,6 +47,16 @@ public class AdminDaoImpl implements AdminDAO {
 			Client ee = entityManager.getReference(client.getClass(), client.getIdclients());
 			entityManager.remove(ee);
 		}
+	}
+	
+	/**
+	 * Custom select query that selects a client from the db using his email . 
+	 */
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<Client> findClientbyEmail(String email) {
+		return entityManager.createQuery("SELECT c FROM Client c WHERE c.email = :email")
+				.setParameter("email", email).getResultList();
 	}
 
 }

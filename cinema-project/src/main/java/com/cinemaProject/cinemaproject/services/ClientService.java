@@ -1,5 +1,7 @@
 package com.cinemaProject.cinemaproject.services;
 
+import java.security.NoSuchAlgorithmException;
+
 import com.cinemaProject.cinemaproject.entities.Client;
 
 public interface ClientService {
@@ -8,5 +10,7 @@ public interface ClientService {
 	boolean updateClient(Client client);
 
 	Client loginClient(String user, String pass);
+	
+	boolean registerClient(Client client) throws NoSuchAlgorithmException;
 
 }

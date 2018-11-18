@@ -1,0 +1,58 @@
+package com.cinemaProject.cinemaproject.dao.implementationDAO;
+
+import com.cinemaProject.cinemaproject.dao.AdminDAO;
+import com.cinemaProject.cinemaproject.entities.Client;
+
+
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+
+import org.springframework.transaction.annotation.Transactional;
+
+import java.util.List;
+
+/**
+ * The implementation of the Client DAO methods using the entityManager provided.
+ * .
+ *
+ * @author cordu
+ */
+@Transactional
+public class AdminDaoImpl implements AdminDAO {
+
+	// load the entityManager from the persistence.xml
+	@PersistenceContext
+	private EntityManager entityManager;
+
+	/**
+	 * Custom query used to select a client from the db that has the specified
+	 * username.
+	 */
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<Client> findClientbyUsername(String username) {
+		return entityManager.createQuery("SELECT c FROM Client c WHERE c.userName LIKE :userName")
+				.setParameter("userName", username).getResultList();
+	}
+
+	/**
+	 * If the entity is attached to the db remove it. Else, attach it first and then remove it .
+	 */
+
+	@Override
+	public void removeClient(Client client) {
+		if (entityManager.contains(client)) {
+			entityManager.remove(client);
+		} else {
+			Client ee = entityManager.getReference(client.getClass(), client.getIdclients());
+			entityManager.remove(ee);
+		}
+	}
+
+	@Override
+	public List<Client> findClientbyEmail(String email) {
+		return entityManager.createQuery("SELECT c FROM Client c WHERE c.email LIKE :email")
+				.setParameter("email", email).getResultList();
+	}
+
+}

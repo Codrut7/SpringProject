@@ -34,6 +34,8 @@ public interface ClientDAO {
 	 * @return
 	 */
 
-	public List<Client> login(String user, String pass);
+	public List<Client> loginClient(String user, String pass);
+	
+	public void registerClient(Client client);
 
 }

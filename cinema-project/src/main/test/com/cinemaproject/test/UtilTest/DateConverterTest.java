@@ -1,6 +1,6 @@
 package com.cinemaproject.test.UtilTest;
 	/**
-	 * The DateConverter method expects only a String of the following format -> (yyyy-MM-dd hh:mm:ss.SSS)
+	 * The DateConverter method expects only a String of the following format -> (MM/dd/yyyy hh:mm a)
 	 * The following test class wil exemplify that .
 	 * @author cordu
 	 *

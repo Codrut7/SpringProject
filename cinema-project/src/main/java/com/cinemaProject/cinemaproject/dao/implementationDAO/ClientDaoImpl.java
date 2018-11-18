@@ -32,13 +32,19 @@ public class ClientDaoImpl implements ClientDAO {
 		entityManager.merge(client);
 	}
 	/**
-	 * 
+	 * Custom login query that selects a client from db using their username and password .
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
-	public List<Client> login(String user, String pass) {
+	public List<Client> loginClient(String user, String pass) {
 		return entityManager
-				.createQuery("SELECT c FROM Client c WHERE c.userName LIKE :userName AND c.password LIKE :clientPass")
+				.createQuery("SELECT c FROM Client c WHERE c.userName = :userName AND c.password = :clientPass")
 				.setParameter("userName", user).setParameter("clientPass", pass).setMaxResults(1).getResultList();
+	}
+
+	@Override
+	public void registerClient(Client client) {
+		entityManager.persist(client);
+		
 	}
 }

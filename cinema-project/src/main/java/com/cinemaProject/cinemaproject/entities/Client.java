@@ -17,9 +17,6 @@ import java.util.Set;
 @Entity
 @Table(name = "clients")
 public class Client implements Serializable {
-	/**
-	 * The values mapped from the SQL table .
-	 */
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long idclients;
@@ -28,7 +25,6 @@ public class Client implements Serializable {
 	private String email;
 	private String password;
 	private String role;
-
 	@ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	@JoinTable(name = "clients_movies", joinColumns = { @JoinColumn(name = "client_id") }, inverseJoinColumns = {
 			@JoinColumn(name = "movie_id") })
@@ -41,11 +37,12 @@ public class Client implements Serializable {
 
 	}
 
-	public Client(String userName, String phoneNumber, String email, String password) {
+	public Client(String userName, String email, String phoneNumber, String password) {
 		this.userName = userName;
 		this.phoneNumber = phoneNumber;
 		this.email = email;
 		this.password = password;
+		this.role = "USER";
 	}
 	/**
 	 * Getters and setters for all the fields .

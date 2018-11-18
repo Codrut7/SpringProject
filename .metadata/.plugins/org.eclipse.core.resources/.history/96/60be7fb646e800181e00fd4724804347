@@ -1,0 +1,5 @@
+package com.cinemaProject.cinemaproject.util;
+
+public class EmailSender {
+
+}

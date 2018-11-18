@@ -16,18 +16,13 @@ import java.util.Set;
 @Entity
 @Table(name = "movies")
 public class Movie implements Serializable{
-	/**
-	 * The values mapped from the SQL table .
-	 */
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-
 	private String name;
 	private String genre;
 	private String description;
 	private String imageURL;
-
 	@OneToOne(cascade = CascadeType.ALL)
 	private ProgramDetails programDetails;
 	@ManyToMany(mappedBy = "moviesList")
@@ -93,5 +88,5 @@ public class Movie implements Serializable{
 	public void setProgramDetails(ProgramDetails programDetails) {
 		this.programDetails = programDetails;
 	}
-
+	
 }

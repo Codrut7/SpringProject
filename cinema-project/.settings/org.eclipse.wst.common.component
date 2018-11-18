@@ -9,6 +9,6 @@
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/resources"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/test"/>
         <property name="java-output-path" value="/cinema-project/build/classes"/>
-        <property name="context-root" value="CinemaZone"/>
+        <property name="context-root" value="/cinema-project"/>
     </wb-module>
 </project-modules>

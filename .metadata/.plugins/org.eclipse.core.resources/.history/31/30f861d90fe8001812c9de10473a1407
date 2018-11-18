@@ -1,0 +1,19 @@
+<html>
+<head>
+    <title>Login Form Design</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+<body>
+<div class="loginbox">
+    <img src="avatar.png" class="avatar">
+    <h1>Login Here</h1>
+    <form action="query/client/login" method="post">
+        <p>Enter your Email address : </p>
+        <input type="text" name="name" placeholder="Enter Username">
+        <input type="submit" name="" value="Login">
+    </form>
+
+</div>
+
+</body>
+</head>
+</html>

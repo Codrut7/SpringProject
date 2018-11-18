@@ -32,5 +32,17 @@ public class AdminServiceImpl implements AdminService {
 	public void removeClient(Client client) {
 		adminDAO.removeClient(client);
 	}
-
+	
+	/**
+	 * Select query that imports a client from the db using his email address.
+	 */
+	@Override
+	public Client findClientbyEmail(String email) {
+		if (adminDAO.findClientbyEmail(email) == null || adminDAO.findClientbyEmail(email).size() == 0) {
+			return null;
+		} else {
+			Client client = adminDAO.findClientbyEmail(email).get(0);
+			return client;
+		}
+	}
 }

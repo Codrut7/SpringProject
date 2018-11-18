@@ -1,0 +1,134 @@
+package com.cinemaProject.cinemaproject.entities;
+
+import javax.persistence.*;
+import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.Set;
+
+/**
+ * The client entity mapped by hibernate with the SQL table 'clients' . 
+ * The id is auto-incremented.
+ * There is a many-many relation with the movie table, mapped by the the clients_movies that has the primary keys from both tables .
+ * @author cordu
+ *
+ */
+@SuppressWarnings("serial")
+@Entity
+@Table(name = "clients")
+public class Client implements Serializable {
+	/**
+	 * The values mapped from the SQL table .
+	 */
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long idclients;
+	private String userName;
+	private String phoneNumber;
+	private String email;
+	private String password;
+	private String role;
+
+	@ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	@JoinTable(name = "clients_movies", joinColumns = { @JoinColumn(name = "client_id") }, inverseJoinColumns = {
+			@JoinColumn(name = "movie_id") })
+	private Set<Movie> moviesList = new HashSet<Movie>();
+	
+	/**
+	 * Default constructor and parameterized constructor .
+	 */
+	public Client() {
+
+	}
+
+	public Client(String userName, String email, String phoneNumber, String password) {
+		this.userName = userName;
+		this.phoneNumber = phoneNumber;
+		this.email = email;
+		this.password = password;
+	}
+	/**
+	 * Getters and setters for all the fields .
+	 */
+	public String getUserName() {
+		return userName;
+	}
+
+	public void setUserName(String userName) {
+		this.userName = userName;
+	}
+
+	public Long getIdclients() {
+		return idclients;
+	}
+
+	public void setIdclients(Long idclients) {
+		this.idclients = idclients;
+	}
+
+	public String getPhoneNumber() {
+		return phoneNumber;
+	}
+
+	public void setPhoneNumber(String phoneNumber) {
+		this.phoneNumber = phoneNumber;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	public Set<Movie> getMovies() {
+		return moviesList;
+	}
+
+	public String getRole() {
+		return role;
+	}
+
+	public void setRole(String role) {
+		this.role = role;
+	}
+
+	public void addMovie(Movie movie) {
+		this.moviesList.add(movie);
+	}
+	/**
+	 * Methods to manipulate each client personal movie Set . 
+	 */
+	public void removeMovie(Movie movie) {
+		Iterator<Movie> iterator = moviesList.iterator();
+		while (iterator.hasNext()) {
+			Movie movie2 = (Movie) iterator.next();
+			if (movie2.getId().equals(movie.getId())) {
+				iterator.remove();
+			}
+		}
+	}
+
+	public boolean contains(Movie movie) {
+		for (Movie index : this.moviesList) {
+			if (index.getId() == movie.getId()) {
+				return true;
+			}
+		}
+		return false;
+	}
+
+	public void clearMovies() {
+		this.moviesList.clear();
+	}
+
+}

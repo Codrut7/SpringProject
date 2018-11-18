@@ -49,7 +49,7 @@ public class ClientServiceTest {
 		List<Client> result = new ArrayList<>();
 		result.add(expectedClient);
 		// Tell the mock db what to do when he gets some input
-		when(daoMock.login("Mihaitza", "sefubaniloR123!")).thenReturn(result);
+		when(daoMock.loginClient("Mihaitza", "sefubaniloR123!")).thenReturn(result);
 		// Insert the mock account
 		Client actualResult = service.loginClient("Mihaitza", "sefubaniloR123!");
 		assertThat(actualResult.getUserName(), is("Mihaitza"));

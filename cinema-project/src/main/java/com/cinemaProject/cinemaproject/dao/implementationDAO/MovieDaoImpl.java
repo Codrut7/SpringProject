@@ -42,7 +42,7 @@ public class MovieDaoImpl implements MovieDAO {
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<Movie> getMovieByName(String name) {
-		return entityManager.createQuery("SELECT c FROM Movie c WHERE c.name LIKE :name").setParameter("name", name)
+		return entityManager.createQuery("SELECT c FROM Movie c WHERE c.name = :name").setParameter("name", name)
 				.getResultList();
 	}
 	/**
